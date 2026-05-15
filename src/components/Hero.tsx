@@ -1,8 +1,8 @@
 import { MessageCircle } from "lucide-react";
 import heroImg from "@/assets/hero-professional.jpg";
+import logoIntegrado from "@/assets/grupointegrado.png";
 import { modalStore } from "@/lib/modal-store";
 import { track } from "@/lib/tracking";
-import { LOGO_URL } from "@/lib/constants";
 
 const SELOS = [
   "Nota máxima no MEC",
@@ -30,12 +30,15 @@ export function Hero() {
       />
       <div className="absolute inset-0 -z-10 bg-navy/70" />
 
-      {/* Top bar com logo */}
+      {/* Top bar com logo
+          NOTE: aplicamos `brightness-0 invert` para forçar a logo em branco
+          sobre o hero navy. Remover esses utilitários quando o cliente
+          fornecer a versão negativa/branca oficial da marca. */}
       <header className="px-5 md:px-10 pt-6 md:pt-8">
         <img
-          src={LOGO_URL}
+          src={logoIntegrado}
           alt="Centro Universitário Integrado"
-          className="h-10 md:h-12 w-auto"
+          className="h-9 md:h-12 w-auto brightness-0 invert"
           loading="eager"
         />
       </header>

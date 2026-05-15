@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Montserrat", system-ui, sans-serif;
-  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Poppins", "Inter", system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -48,39 +48,41 @@
 :root {
   --radius: 0.75rem;
 
-  /* Paleta oficial Grupo Integrado */
-  --navy: #0D1B2A;
-  --navy-2: #163248;
-  --beige: #EDE8DF;
-  --gold: #E2C97E;
-  --gold-strong: #C9A84C;
-  --gold-dark: #9E7B2F;
+  /* Paleta oficial Grupo Integrado (navy + azul claro) */
+  --navy: #0B2A57;
+  --navy-2: #0B2A57;
+  --beige: #EDECE8;
+  /* Tokens "gold" remapeados para azul claro institucional #1E88E5
+     (mantidos como alias para evitar refactor amplo). */
+  --gold: #1E88E5;
+  --gold-strong: #1E88E5;
+  --gold-dark: #0B2A57;
 
-  --background: #F9F5EF;            /* Off white principal */
-  --surface: #EDE8DF;               /* Bege claro */
-  --foreground: #0D1B2A;            /* Texto sobre claro */
-  --muted: #EDE8DF;
+  --background: #F7F7F5;            /* Off white principal */
+  --surface: #EDECE8;               /* Bege/cinza neutro */
+  --foreground: #0B2A57;            /* Navy sobre claro */
+  --muted: #EDECE8;
   --muted-foreground: #4A4A4A;
   --card: #FFFFFF;
-  --card-foreground: #0D1B2A;
-  --popover: #F9F5EF;
-  --popover-foreground: #0D1B2A;
-  --primary: #0D1B2A;               /* Navy primário */
-  --primary-foreground: #F9F5EF;
-  --secondary: #EDE8DF;
-  --secondary-foreground: #0D1B2A;
-  --accent: #E2C97E;                /* Dourado */
-  --accent-foreground: #0D1B2A;
+  --card-foreground: #0B2A57;
+  --popover: #FFFFFF;
+  --popover-foreground: #0B2A57;
+  --primary: #0B2A57;               /* Navy primário */
+  --primary-foreground: #FFFFFF;
+  --secondary: #EDECE8;
+  --secondary-foreground: #0B2A57;
+  --accent: #1E88E5;                /* Azul claro */
+  --accent-foreground: #FFFFFF;
   --destructive: #dc2626;
   --destructive-foreground: #FFFFFF;
-  --border: #EDE8DF;
-  --input: #EDE8DF;
-  --ring: #C9A84C;
+  --border: #EDECE8;
+  --input: #EDECE8;
+  --ring: #1E88E5;
   --whatsapp: #25D366;
   --whatsapp-hover: #1FBE5A;
   --whatsapp-foreground: #FFFFFF;
-  --institutional: #0D1B2A;
-  --institutional-foreground: #F9F5EF;
+  --institutional: #0B2A57;
+  --institutional-foreground: #FFFFFF;
 }
 
 @layer base {
@@ -102,8 +104,8 @@
 
   h1, h2, h3, .font-serif {
     font-family: var(--font-serif);
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    font-weight: 800;
+    letter-spacing: -0.015em;
   }
 
   h1 {
