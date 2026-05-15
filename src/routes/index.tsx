@@ -1,26 +1,45 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Hero } from "@/components/Hero";
+import { Objections } from "@/components/Objections";
+import { Areas } from "@/components/Areas";
+import { Footer } from "@/components/Footer";
+import { CourseSelectionModal } from "@/components/CourseSelectionModal";
+import { ExitIntentModal } from "@/components/ExitIntentModal";
+import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Pós-Graduação EAD | Centro Universitário Integrado" },
+      {
+        name: "description",
+        content:
+          "Pós-graduação 100% EAD do Centro Universitário Integrado. Escolha sua área, fale com um consultor pelo WhatsApp e comece este mês. Nota máxima no MEC, 40 anos de tradição.",
+      },
+      { property: "og:title", content: "Pós-Graduação EAD | Centro Universitário Integrado" },
+      {
+        property: "og:description",
+        content:
+          "Sua próxima promoção começa com uma decisão. Pós EAD com atendimento direto pelo WhatsApp.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <main className="bg-background">
+      <Hero />
+      <Objections />
+      <Areas />
+      <Footer />
+      <StickyMobileCTA />
+      <CourseSelectionModal />
+      <ExitIntentModal />
+    </main>
+  );
 }
