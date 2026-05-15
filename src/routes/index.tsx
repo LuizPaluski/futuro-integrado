@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Hero } from "@/components/Hero";
 import { Objections } from "@/components/Objections";
 import { Areas } from "@/components/Areas";
-import { Footer } from "@/components/Footer";
 import { CourseSelectionModal } from "@/components/CourseSelectionModal";
 import { ExitIntentModal } from "@/components/ExitIntentModal";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
