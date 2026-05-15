@@ -35,7 +35,6 @@ function Index() {
       <Hero />
       <Objections />
       <Areas />
-      <Footer />
       <StickyMobileCTA />
       <CourseSelectionModal />
       <ExitIntentModal />
