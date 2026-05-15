@@ -30,18 +30,14 @@ export function Hero() {
       />
       <div className="absolute inset-0 -z-10 bg-navy/70" />
 
-      {/* Top bar com logo institucional (versão "Integrado PÓS").
-          Como a logo é navy/azul sobre branco, exibimos dentro de uma
-          pílula branca para manter contraste sobre o hero navy. */}
+      {/* Logo institucional — fundo removido, invertida para branco sobre hero navy */}
       <header className="px-5 md:px-10 pt-6 md:pt-8">
-        <div className="inline-flex items-center rounded-lg bg-white px-3 py-2 shadow-sm">
-          <img
-            src={logoIntegrado}
-            alt="Centro Universitário Integrado - Pós-Graduação"
-            className="h-7 md:h-9 w-auto"
-            loading="eager"
-          />
-        </div>
+        <img
+          src={logoIntegrado}
+          alt="Centro Universitário Integrado - Pós-Graduação"
+          className="h-8 md:h-10 w-auto brightness-0 invert"
+          loading="eager"
+        />
       </header>
 
       {/* Selos */}
