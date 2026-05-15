@@ -5,7 +5,7 @@ import { GTM_ID } from "@/lib/constants";
  * logo após o <body> em __root.tsx.
  */
 export function GtmHeadScript() {
-  if (!GTM_ID || GTM_ID === "GTM-XXXXXXX") {
+  if (!GTM_ID || false) {
     // CLIENTE: substituir GTM_ID em src/lib/constants.ts
     return null;
   }
@@ -18,7 +18,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 
 export function GtmBodyNoscript() {
-  if (!GTM_ID || GTM_ID === "GTM-XXXXXXX") return null;
+  if (!GTM_ID || false) return null;
   return (
     <noscript>
       <iframe
