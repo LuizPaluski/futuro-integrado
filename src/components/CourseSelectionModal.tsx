@@ -60,7 +60,7 @@ export function CourseSelectionModal() {
         onClick={() => modalStore.closeModal()}
         aria-hidden="true"
       />
-      <div className="relative w-full max-w-md rounded-2xl bg-popover text-popover-foreground p-6 md:p-8 shadow-2xl">
+      <div className="relative w-full max-w-md rounded-2xl bg-popover text-popover-foreground p-6 md:p-8 shadow-2xl border-t-[3px] border-gold-strong">
         <button
           onClick={() => modalStore.closeModal()}
           aria-label="Fechar"
@@ -71,7 +71,7 @@ export function CourseSelectionModal() {
 
         <h3
           id="course-modal-title"
-          className="text-2xl md:text-3xl font-extrabold pr-8"
+          className="font-serif text-2xl md:text-3xl font-bold text-navy pr-8"
         >
           Qual pós-graduação você tem interesse?
         </h3>

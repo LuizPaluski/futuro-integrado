@@ -49,22 +49,23 @@ export function Objections() {
   };
 
   return (
-    <section className="bg-surface md:min-h-[80vh] py-20 md:py-28 px-5 md:px-10">
+    <section className="bg-background md:min-h-[80vh] py-20 md:py-28 px-5 md:px-10">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-extrabold text-foreground max-w-3xl">
+        <h2 className="font-serif text-3xl md:text-5xl font-bold text-navy text-center max-w-3xl mx-auto">
           As dúvidas que você provavelmente está fazendo agora.
         </h2>
+        <div className="mt-6 mx-auto h-px w-24 bg-gold" aria-hidden="true" />
 
         <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {BLOCOS.map(({ icon: Icon, titulo, texto }) => (
             <article
               key={titulo}
-              className="rounded-2xl border border-border bg-card p-6 md:p-8 flex flex-col"
+              className="rounded-2xl border border-beige bg-card p-6 md:p-8 flex flex-col"
             >
-              <div className="h-11 w-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+              <div className="h-11 w-11 rounded-xl bg-gold/15 text-gold-strong flex items-center justify-center">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </div>
-              <h3 className="mt-5 text-xl md:text-2xl font-bold text-foreground">
+              <h3 className="font-serif mt-5 text-xl md:text-2xl font-bold text-navy">
                 {titulo}
               </h3>
               <p className="mt-3 text-muted-foreground text-base leading-relaxed">

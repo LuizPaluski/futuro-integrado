@@ -45,7 +45,7 @@ export function ExitIntentModal() {
         onClick={() => modalStore.closeExit()}
         aria-hidden="true"
       />
-      <div className="relative w-full max-w-md rounded-2xl bg-popover text-popover-foreground p-6 md:p-8 shadow-2xl">
+      <div className="relative w-full max-w-md rounded-2xl bg-popover text-popover-foreground p-6 md:p-8 shadow-2xl border-t-[3px] border-gold-strong">
         <button
           onClick={() => modalStore.closeExit()}
           aria-label="Fechar"
@@ -54,7 +54,7 @@ export function ExitIntentModal() {
           <X className="h-5 w-5" />
         </button>
 
-        <h3 id="exit-modal-title" className="text-2xl md:text-3xl font-extrabold pr-8">
+        <h3 id="exit-modal-title" className="font-serif text-2xl md:text-3xl font-bold text-navy pr-8">
           Antes de sair.
         </h3>
         <p className="mt-2 text-muted-foreground">
