@@ -1,18 +1,13 @@
-import { create } from "zustand";
+import { useSyncExternalStore } from "react";
 
-type ModalState = {
+type State = {
   open: boolean;
   initialCurso: string;
   exitOpen: boolean;
-  openModal: (initialCurso?: string) => void;
-  closeModal: () => void;
-  openExit: () => void;
-  closeExit: () => void;
 };
 
-// Simples store global sem dependência externa
 let listeners = new Set<() => void>();
-let state = {
+let state: State = {
   open: false,
   initialCurso: "",
   exitOpen: false,
@@ -26,7 +21,9 @@ export const modalStore = {
   getState: () => state,
   subscribe: (l: () => void) => {
     listeners.add(l);
-    return () => listeners.delete(l);
+    return () => {
+      listeners.delete(l);
+    };
   },
   openModal: (initialCurso = "") => {
     state = { ...state, open: true, initialCurso };
@@ -46,8 +43,6 @@ export const modalStore = {
   },
 };
 
-import { useSyncExternalStore } from "react";
-
 export function useModalStore() {
   return useSyncExternalStore(
     modalStore.subscribe,
@@ -55,8 +50,3 @@ export function useModalStore() {
     modalStore.getState,
   );
 }
-
-// Helper export tipo (não usado, evita warning sobre create)
-export type { ModalState };
-// suppress unused
-void create;
