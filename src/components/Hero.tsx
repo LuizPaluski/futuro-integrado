@@ -2,10 +2,11 @@ import { MessageCircle } from "lucide-react";
 import heroImg from "@/assets/hero-professional.jpg";
 import { modalStore } from "@/lib/modal-store";
 import { track } from "@/lib/tracking";
+import { LOGO_URL } from "@/lib/constants";
 
 const SELOS = [
   "Nota máxima no MEC",
-  "+13.000 formados",
+  "Nº 1 do Paraná em Centro Universitário",
   "40 anos",
   "100% EAD",
 ];
@@ -18,7 +19,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative isolate min-h-[640px] md:min-h-screen flex flex-col">
+    <section className="relative isolate min-h-[640px] md:min-h-screen flex flex-col bg-navy">
       {/* Background */}
       <img
         src={heroImg}
@@ -27,15 +28,16 @@ export function Hero() {
         className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
         fetchPriority="high"
       />
-      <div className="absolute inset-0 -z-10 bg-black/35" />
+      <div className="absolute inset-0 -z-10 bg-navy/70" />
 
-      {/* Top bar */}
+      {/* Top bar com logo */}
       <header className="px-5 md:px-10 pt-6 md:pt-8">
-        <div className="flex items-center">
-          <div className="text-primary-foreground font-bold tracking-tight text-lg md:text-xl">
-            Centro Universitário <span className="opacity-80">Integrado</span>
-          </div>
-        </div>
+        <img
+          src={LOGO_URL}
+          alt="Centro Universitário Integrado"
+          className="h-10 md:h-12 w-auto"
+          loading="eager"
+        />
       </header>
 
       {/* Selos */}
@@ -44,7 +46,7 @@ export function Hero() {
           {SELOS.map((s) => (
             <li
               key={s}
-              className="rounded-full bg-white/15 backdrop-blur-sm border border-white/25 px-3 py-1 text-xs md:text-sm text-white"
+              className="rounded-full border border-gold/60 bg-navy/40 backdrop-blur-sm px-3 py-1 text-xs md:text-sm text-white"
             >
               {s}
             </li>
@@ -55,10 +57,14 @@ export function Hero() {
       {/* Conteúdo */}
       <div className="flex-1 flex items-center px-5 md:px-10 py-12 md:py-20">
         <div className="max-w-3xl">
-          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05]">
+          <h1 className="font-serif text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1]">
             Sua próxima promoção começa com uma decisão.
           </h1>
-          <p className="mt-5 md:mt-7 text-white/90 text-lg md:text-2xl leading-snug max-w-2xl">
+
+          {/* Divisor dourado sutil */}
+          <div className="mt-6 md:mt-8 h-px w-24 bg-gold" aria-hidden="true" />
+
+          <p className="mt-6 md:mt-8 text-white/90 font-sans font-normal text-lg md:text-2xl leading-snug max-w-2xl">
             Pós-graduação 100% EAD. Você escolhe o curso, entra em contato pelo
             WhatsApp e já começa.
           </p>
@@ -66,12 +72,12 @@ export function Hero() {
           <div className="mt-8 md:mt-10">
             <button
               onClick={handleCta}
-              className="inline-flex items-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover transition-colors text-whatsapp-foreground font-semibold text-base md:text-lg px-6 md:px-8 py-4 shadow-lg shadow-black/20"
+              className="inline-flex items-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover transition-colors text-whatsapp-foreground font-semibold text-base md:text-lg px-6 md:px-8 py-4 shadow-lg shadow-black/30"
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" />
               Quero minha pós agora
             </button>
-            <p className="mt-3 text-white/85 text-sm md:text-base">
+            <p className="mt-3 text-gold text-sm md:text-base">
               Vagas abertas para turmas deste mês.
             </p>
           </div>

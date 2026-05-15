@@ -7,7 +7,6 @@ import {
   Cpu,
   Layers,
   MessageCircle,
-  ArrowRight,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { modalStore } from "@/lib/modal-store";
@@ -41,17 +40,16 @@ function AreaCard({ area }: { area: Area }) {
   return (
     <button
       onClick={open}
-      className="group text-left rounded-2xl border border-border bg-card p-5 md:p-6 transition-all hover:border-primary/40 hover:-translate-y-0.5"
+      className="group text-left rounded-2xl border border-beige bg-card p-5 md:p-6 transition-all hover:border-gold hover:-translate-y-0.5"
     >
-      <div className="h-11 w-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+      <div className="h-11 w-11 rounded-xl bg-gold/15 text-gold-strong flex items-center justify-center">
         <area.Icon className="h-5 w-5" aria-hidden="true" />
       </div>
-      <div className="mt-5 text-lg md:text-xl font-bold text-foreground">
+      <div className="font-serif mt-5 text-lg md:text-xl font-bold text-navy">
         {area.nome}
       </div>
-      <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">
+      <span className="mt-4 inline-flex items-center justify-center rounded-lg border border-navy/40 px-3 py-1.5 text-xs md:text-sm font-semibold text-navy group-hover:bg-navy group-hover:text-primary-foreground transition-colors">
         Quero esta área
-        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
       </span>
     </button>
   );
@@ -64,12 +62,13 @@ export function Areas() {
   };
 
   return (
-    <section className="md:min-h-[80vh] py-20 md:py-28 px-5 md:px-10 bg-background">
+    <section className="md:min-h-[80vh] py-20 md:py-28 px-5 md:px-10 bg-surface">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-extrabold text-foreground">
+        <h2 className="font-serif text-3xl md:text-5xl font-bold text-navy text-center">
           Escolha sua área de atuação.
         </h2>
-        <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
+        <div className="mt-6 mx-auto h-px w-24 bg-gold" aria-hidden="true" />
+        <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto text-center">
           Selecione a área que combina com o seu próximo passo. Um consultor te
           ajuda a escolher o curso ideal pelo WhatsApp.
         </p>
@@ -80,11 +79,11 @@ export function Areas() {
           ))}
         </div>
 
-        {/* Faixa institucional */}
-        <div className="mt-14 md:mt-20 rounded-3xl bg-institutional text-institutional-foreground p-8 md:p-12">
+        {/* Faixa institucional - navy com borda dourada superior */}
+        <div className="mt-14 md:mt-20 rounded-3xl bg-navy text-white p-8 md:p-12 border-t-2 border-gold">
           <div className="grid md:grid-cols-[1fr_auto] gap-6 md:gap-10 md:items-center">
             <div>
-              <h3 className="text-2xl md:text-4xl font-extrabold leading-tight">
+              <h3 className="font-serif text-2xl md:text-4xl font-bold leading-tight">
                 Do interesse à matrícula, tudo pelo WhatsApp.
               </h3>
               <p className="mt-3 md:mt-4 text-base md:text-lg text-white/85 max-w-xl">
@@ -102,24 +101,28 @@ export function Areas() {
           </div>
         </div>
 
-        {/* Prova social */}
-        <ul className="mt-12 md:mt-14 flex flex-wrap justify-center gap-3 md:gap-4">
-          {SELOS.map((s) => (
-            <li
-              key={s}
-              className="rounded-full border border-border bg-surface px-4 py-2 text-sm md:text-base font-medium text-foreground"
-            >
-              {s}
-            </li>
-          ))}
-        </ul>
+        {/* Prova social institucional */}
+        <div className="mt-12 md:mt-14 -mx-5 md:-mx-10 bg-background py-8 md:py-10 px-5 md:px-10">
+          <ul className="flex flex-wrap justify-center items-center gap-x-2 gap-y-3 md:gap-x-4 text-center">
+            {SELOS.map((s, i) => (
+              <li key={s} className="flex items-center gap-2 md:gap-4">
+                <span className="text-base md:text-lg font-semibold text-navy">
+                  {s}
+                </span>
+                {i < SELOS.length - 1 && (
+                  <span className="text-gold text-xl" aria-hidden="true">·</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
 
         {/* Depoimento - PLACEHOLDER
             CLIENTE: estrutura pronta para receber foto, nome, profissão,
             cidade/PR e citação curta. Substituir quando o Grupo Integrado
             entregar os depoimentos reais. */}
-        <div className="mt-12 md:mt-16 max-w-2xl mx-auto rounded-2xl border border-dashed border-border bg-surface p-8 md:p-10 text-center">
-          <div className="mx-auto h-16 w-16 rounded-full bg-border" aria-hidden="true" />
+        <div className="mt-12 md:mt-16 max-w-2xl mx-auto rounded-2xl border border-gold/50 bg-card p-8 md:p-10 text-center">
+          <div className="mx-auto h-16 w-16 rounded-full bg-beige" aria-hidden="true" />
           <p className="mt-5 text-base md:text-lg text-muted-foreground italic">
             "Espaço reservado para depoimentos reais de alunos. Estrutura de
             coleta em construção pelo Grupo Integrado."

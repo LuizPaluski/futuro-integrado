@@ -73,14 +73,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Pós-Graduação EAD | Centro Universitário Integrado" },
+      {
+        name: "description",
+        content:
+          "Pós-graduação 100% EAD do Centro Universitário Integrado. Escolha sua área e fale com um consultor pelo WhatsApp. Nota máxima no MEC, 40 anos de tradição no Paraná.",
+      },
+      { name: "author", content: "Centro Universitário Integrado" },
+      { property: "og:title", content: "Pós-Graduação EAD | Centro Universitário Integrado" },
+      {
+        property: "og:description",
+        content:
+          "Sua próxima promoção começa com uma decisão. Pós EAD com atendimento direto pelo WhatsApp.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -88,7 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Montserrat:wght@400;500;600;700&display=swap",
       },
     ],
   }),
