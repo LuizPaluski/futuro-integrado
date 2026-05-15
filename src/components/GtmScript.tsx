@@ -1,14 +1,9 @@
 import { GTM_ID } from "@/lib/constants";
 
 /**
- * GTM script. Renderiza no <head> e o <noscript> deve ser inserido
- * logo após o <body> em __root.tsx.
+ * GTM script. Renderiza no <head> e o <noscript> logo após o <body>.
  */
 export function GtmHeadScript() {
-  if (!GTM_ID || false) {
-    // CLIENTE: substituir GTM_ID em src/lib/constants.ts
-    return null;
-  }
   const code = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -18,7 +13,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 
 export function GtmBodyNoscript() {
-  if (!GTM_ID || false) return null;
   return (
     <noscript>
       <iframe
