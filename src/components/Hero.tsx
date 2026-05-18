@@ -1,16 +1,9 @@
-import { MessageCircle, Trophy } from "lucide-react";
+import { MessageCircle, Trophy, Medal, CalendarCheck, Monitor } from "lucide-react";
 import heroImg from "@/assets/hero-v1.jpg";
 import logoIntegrado from "@/assets/grupointegrado.png";
 import { whatsappLink } from "@/lib/constants";
 import { track } from "@/lib/tracking";
 
-type Selo = { texto: string; destaque?: boolean };
-const SELOS: Selo[] = [
-  { texto: "Nº 1 do Paraná em Centro Universitário", destaque: true },
-  { texto: "Nota máxima no MEC" },
-  { texto: "40 anos" },
-  { texto: "100% EAD" },
-];
 
 export function Hero() {
   const handleCta = () => {
@@ -49,24 +42,32 @@ export function Hero() {
       </header>
 
       {/* Selos */}
-      <div className="px-5 md:px-10 mt-6 md:mt-8">
-        <ul className="grid grid-cols-2 md:flex md:flex-wrap gap-2 md:gap-3">
-          {SELOS.map((s) => (
-            <li
-              key={s.texto}
-              className={[
-                "rounded-full backdrop-blur-sm px-3 py-2 text-[0.8rem] md:text-sm text-white text-center min-h-[44px] flex items-center justify-center leading-snug",
-                s.destaque
-                  ? "col-span-2 md:col-span-1 border border-accent bg-accent/25 font-semibold gap-1.5"
-                  : "border border-gold/60 bg-navy/40",
-              ].join(" ")}
-            >
-              {s.destaque && (
-                <Trophy className="h-4 w-4 text-accent shrink-0" aria-hidden="true" />
-              )}
-              <span className="break-words hyphens-auto">{s.texto}</span>
-            </li>
-          ))}
+      <div className="px-5 md:px-10 mt-6 md:mt-8 flex flex-col items-center gap-2 md:gap-3">
+        {/* Nível 1 — Badge protagonista */}
+        <div
+          className="inline-flex items-center justify-center gap-2 rounded-full border-[1.5px] border-accent bg-accent/10 px-[18px] py-[10px] text-white font-bold text-sm md:text-[15px] font-sans"
+          style={{ boxShadow: "0 0 24px rgba(30, 136, 229, 0.15)" }}
+        >
+          <Trophy className="h-[18px] w-[18px] text-accent shrink-0" aria-hidden="true" />
+          <span>Nº 1 do Paraná em Centro Universitário</span>
+        </div>
+
+        {/* Nível 2 — Microcredentials */}
+        <ul className="flex flex-wrap items-center justify-center gap-x-1 gap-y-1 text-white/75">
+          <li className="flex items-center gap-1 text-xs md:text-[13px] font-medium">
+            <Medal className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+            Nota máxima no MEC
+          </li>
+          <span className="mx-1 h-3 w-px bg-white/30" aria-hidden="true" />
+          <li className="flex items-center gap-1 text-xs md:text-[13px] font-medium">
+            <CalendarCheck className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+            40 anos
+          </li>
+          <span className="mx-1 h-3 w-px bg-white/30" aria-hidden="true" />
+          <li className="flex items-center gap-1 text-xs md:text-[13px] font-medium">
+            <Monitor className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+            100% EAD
+          </li>
         </ul>
       </div>
 
