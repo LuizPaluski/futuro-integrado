@@ -42,15 +42,15 @@ function AreaCard({ area }: { area: Area }) {
       target="_blank"
       rel="noopener noreferrer"
       onClick={onClick}
-      className="cta-button group text-left rounded-2xl border border-beige bg-card p-5 md:p-6 hover:border-accent hover:-translate-y-0.5 block"
+      className="cta-button group text-left rounded-2xl border border-beige bg-card p-5 md:p-6 hover:border-accent md:hover:-translate-y-0.5 flex flex-col min-h-[160px]"
     >
       <div className="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center">
         <area.Icon className="h-5 w-5" aria-hidden="true" />
       </div>
-      <div className="font-serif mt-5 text-lg md:text-xl font-bold text-navy">
+      <div className="font-serif mt-4 text-base md:text-xl font-bold text-navy leading-tight">
         {area.nome}
       </div>
-      <span className="mt-4 inline-flex items-center justify-center rounded-lg border border-navy/40 px-3 py-1.5 text-xs md:text-sm font-semibold text-navy group-hover:bg-navy group-hover:text-primary-foreground transition-colors">
+      <span className="mt-auto pt-4 w-full inline-flex items-center justify-center rounded-lg border border-navy/40 px-3 min-h-11 text-xs md:text-sm font-semibold text-navy group-hover:bg-navy group-hover:text-primary-foreground transition-colors">
         Quero esta área
       </span>
     </a>
@@ -83,23 +83,24 @@ export function Areas() {
         </div>
 
         {/* Faixa institucional - navy com borda dourada superior */}
-        <div className="mt-14 md:mt-20 rounded-3xl bg-navy text-white p-8 md:p-12 border-t-2 border-gold">
-          <div className="grid md:grid-cols-[1fr_auto] gap-6 md:gap-10 md:items-center">
+        <div className="mt-14 md:mt-20 rounded-3xl bg-navy text-white p-6 md:p-12 border-t-2 border-gold">
+          <div className="grid md:grid-cols-[1fr_auto] gap-6 md:gap-10 md:items-center text-center md:text-left">
             <div>
               <h3 className="font-serif text-2xl md:text-4xl font-bold leading-tight">
                 Do interesse à matrícula, tudo pelo WhatsApp.
               </h3>
-              <p className="mt-3 md:mt-4 text-base md:text-lg text-white/85 max-w-xl">
+              <p className="mt-3 md:mt-4 text-base md:text-lg text-white/85 max-w-xl mx-auto md:mx-0">
                 Sem portal, sem fila, sem papelada. Você fala com um consultor,
                 escolhe a turma e já começa.
               </p>
             </div>
             <a
+              data-final-cta
               href={whatsappLink("Olá! Quero começar minha matrícula na pós.")}
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleFaixaCta}
-              className="cta-button inline-flex items-center justify-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-semibold px-6 py-4 whitespace-nowrap"
+              className="cta-button flex md:inline-flex w-full md:w-auto items-center justify-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-bold px-6 min-h-[52px] py-4 whitespace-nowrap"
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" />
               Começar agora pelo WhatsApp
