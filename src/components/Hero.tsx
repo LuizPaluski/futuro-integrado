@@ -15,8 +15,6 @@ const SELOS: Selo[] = [
 export function Hero() {
   const handleCta = () => {
     track("click_cta_hero");
-    track("open_popup_curso", { source: "hero" });
-    modalStore.openModal();
   };
 
   return (
