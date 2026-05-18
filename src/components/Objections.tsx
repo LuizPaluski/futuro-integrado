@@ -39,8 +39,6 @@ const BLOCOS = [
 export function Objections() {
   const handleCta = () => {
     track("click_cta_objections");
-    track("open_popup_curso", { source: "objections" });
-    modalStore.openModal();
   };
 
   return (
