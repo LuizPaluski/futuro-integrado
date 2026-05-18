@@ -1,8 +1,7 @@
 import { MessageCircle, Trophy } from "lucide-react";
-// TODO: Substituir por imagem que comunique evolução de carreira (executivo sênior
-// em ambiente corporativo moderno, apresentação, networking, momento de conquista).
-// Origem sugerida: Unsplash/Pexels licença livre. Trocar src abaixo e ajustar alt.
-import heroImg from "@/assets/hero-professional.jpg";
+// Hero background: imagem gerada por IA (Lovable AI), sem banco de imagens.
+// Brief: profissional brasileiro liderando reunião em ambiente corporativo moderno.
+import heroImg from "@/assets/hero-v2.jpg";
 import logoIntegrado from "@/assets/grupointegrado.png";
 import { modalStore } from "@/lib/modal-store";
 import { track } from "@/lib/tracking";
@@ -27,7 +26,7 @@ export function Hero() {
       {/* Background */}
       <img
         src={heroImg}
-        alt=""
+        alt="Profissional em ambiente corporativo apresentando para sua equipe"
         aria-hidden="true"
         className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
         fetchPriority="high"
