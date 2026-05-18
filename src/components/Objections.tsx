@@ -1,5 +1,5 @@
 import { MessageCircle, Clock, TrendingUp, Award } from "lucide-react";
-import { modalStore } from "@/lib/modal-store";
+import { whatsappLink } from "@/lib/constants";
 import { track } from "@/lib/tracking";
 
 const BLOCOS = [
