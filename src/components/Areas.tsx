@@ -1,3 +1,4 @@
+import { CourseSearch } from "./CourseSearch";
 import {
   Scale,
   GraduationCap,
@@ -73,7 +74,9 @@ export function Areas() {
           ajuda a escolher o curso ideal pelo WhatsApp.
         </p>
 
-        <div className="mt-10 md:mt-14 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+        <CourseSearch />
+
+        <div className="mt-8 md:mt-10 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
           {AREAS.map((a) => (
             <AreaCard key={a.nome} area={a} />
           ))}
