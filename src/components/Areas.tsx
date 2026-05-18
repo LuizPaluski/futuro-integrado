@@ -10,7 +10,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { modalStore } from "@/lib/modal-store";
+import { whatsappLink } from "@/lib/constants";
 import { track } from "@/lib/tracking";
 
 type Area = { nome: string; Icon: LucideIcon };
