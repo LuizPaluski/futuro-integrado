@@ -1,14 +1,18 @@
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Trophy } from "lucide-react";
+// TODO: Substituir por imagem que comunique evolução de carreira (executivo sênior
+// em ambiente corporativo moderno, apresentação, networking, momento de conquista).
+// Origem sugerida: Unsplash/Pexels licença livre. Trocar src abaixo e ajustar alt.
 import heroImg from "@/assets/hero-professional.jpg";
 import logoIntegrado from "@/assets/grupointegrado.png";
 import { modalStore } from "@/lib/modal-store";
 import { track } from "@/lib/tracking";
 
-const SELOS = [
-  "Nota máxima no MEC",
-  "Nº 1 do Paraná em Centro Universitário",
-  "40 anos",
-  "100% EAD",
+type Selo = { texto: string; destaque?: boolean };
+const SELOS: Selo[] = [
+  { texto: "Nº 1 do Paraná em Centro Universitário", destaque: true },
+  { texto: "Nota máxima no MEC" },
+  { texto: "40 anos" },
+  { texto: "100% EAD" },
 ];
 
 export function Hero() {
@@ -19,7 +23,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative isolate min-h-[640px] md:min-h-screen flex flex-col bg-navy">
+    <section className="relative isolate min-h-[640px] md:min-h-screen flex flex-col bg-navy overflow-hidden">
       {/* Background */}
       <img
         src={heroImg}
@@ -28,9 +32,18 @@ export function Hero() {
         className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
         fetchPriority="high"
       />
-      <div className="absolute inset-0 -z-10 bg-navy/70" />
+      {/* Overlay forte para garantir contraste WCAG AAA no headline */}
+      <div
+        className="absolute inset-0 -z-10"
+        aria-hidden="true"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.7) 100%)",
+        }}
+      />
+      <div className="absolute inset-0 -z-10 hero-vignette" aria-hidden="true" />
 
-      {/* Logo institucional — fundo removido, invertida para branco sobre hero navy */}
+      {/* Logo institucional */}
       <header className="px-5 md:px-10 pt-6 md:pt-8">
         <img
           src={logoIntegrado}
@@ -42,13 +55,21 @@ export function Hero() {
 
       {/* Selos */}
       <div className="px-5 md:px-10 mt-6 md:mt-8">
-        <ul className="flex flex-wrap gap-2 md:gap-3">
+        <ul className="grid grid-cols-2 md:flex md:flex-wrap gap-2 md:gap-3">
           {SELOS.map((s) => (
             <li
-              key={s}
-              className="rounded-full border border-gold/60 bg-navy/40 backdrop-blur-sm px-3 py-1 text-xs md:text-sm text-white"
+              key={s.texto}
+              className={[
+                "rounded-full backdrop-blur-sm px-3 py-2 text-xs md:text-sm text-white text-center min-h-[44px] flex items-center justify-center leading-snug",
+                s.destaque
+                  ? "col-span-2 md:col-span-1 border border-accent bg-accent/25 font-semibold gap-1.5"
+                  : "border border-gold/60 bg-navy/40",
+              ].join(" ")}
             >
-              {s}
+              {s.destaque && (
+                <Trophy className="h-4 w-4 text-accent shrink-0" aria-hidden="true" />
+              )}
+              <span>{s.texto}</span>
             </li>
           ))}
         </ul>
@@ -57,25 +78,31 @@ export function Hero() {
       {/* Conteúdo */}
       <div className="flex-1 flex items-center px-5 md:px-10 py-12 md:py-20">
         <div className="max-w-3xl">
-          <h1 className="font-serif text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1]">
+          <h1
+            className="font-serif text-white text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold leading-[1.05]"
+            style={{ textShadow: "0 2px 16px rgba(0,0,0,0.45)" }}
+          >
             Sua próxima promoção começa com uma decisão.
           </h1>
 
-          {/* Divisor dourado sutil */}
           <div className="mt-6 md:mt-8 h-px w-24 bg-gold" aria-hidden="true" />
 
-          <p className="mt-6 md:mt-8 text-white/90 font-sans font-normal text-lg md:text-2xl leading-snug max-w-2xl">
+          <p
+            className="mt-6 md:mt-8 text-white font-sans font-normal text-lg md:text-2xl leading-snug max-w-2xl"
+            style={{ textShadow: "0 1px 8px rgba(0,0,0,0.5)" }}
+          >
             Pós-graduação 100% EAD. Você escolhe o curso, entra em contato pelo
             WhatsApp e já começa.
           </p>
 
           <div className="mt-8 md:mt-10">
             <button
+              data-hero-cta
               onClick={handleCta}
-              className="inline-flex items-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover transition-colors text-whatsapp-foreground font-semibold text-base md:text-lg px-6 md:px-8 py-4 shadow-lg shadow-black/30"
+              className="cta-button cta-pulse inline-flex items-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-semibold text-base md:text-lg px-6 md:px-8 py-4 shadow-lg shadow-black/30"
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" />
-              Quero minha pós agora
+              Quero conhecer a pós
             </button>
             <p className="mt-3 text-gold text-sm md:text-base">
               Vagas abertas para turmas deste mês.

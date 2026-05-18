@@ -112,3 +112,46 @@
     line-height: 1.15;
   }
 }
+
+/* Micro-interações para CTAs */
+@keyframes cta-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55), 0 10px 24px -8px rgba(0, 0, 0, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0), 0 10px 24px -8px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.cta-button {
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out, background-color 200ms ease-out;
+  will-change: transform, box-shadow;
+}
+.cta-button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 0 4px rgba(30, 136, 229, 0.18), 0 14px 30px -10px rgba(0, 0, 0, 0.4);
+}
+.cta-button:active {
+  transform: scale(0.98);
+}
+.cta-pulse {
+  animation: cta-pulse 2s infinite ease-in-out;
+}
+
+/* Vignette radial sutil para hero */
+.hero-vignette {
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.55) 100%);
+}
+
+/* Sticky float CTA transitions */
+.sticky-float {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(16px);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+.sticky-float.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}

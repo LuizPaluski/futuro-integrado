@@ -40,9 +40,9 @@ function AreaCard({ area }: { area: Area }) {
   return (
     <button
       onClick={open}
-      className="group text-left rounded-2xl border border-beige bg-card p-5 md:p-6 transition-all hover:border-gold hover:-translate-y-0.5"
+      className="cta-button group text-left rounded-2xl border border-beige bg-card p-5 md:p-6 hover:border-accent hover:-translate-y-0.5"
     >
-      <div className="h-11 w-11 rounded-xl bg-gold/15 text-gold-strong flex items-center justify-center">
+      <div className="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center">
         <area.Icon className="h-5 w-5" aria-hidden="true" />
       </div>
       <div className="font-serif mt-5 text-lg md:text-xl font-bold text-navy">
@@ -93,7 +93,7 @@ export function Areas() {
             </div>
             <button
               onClick={handleFaixaCta}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover transition-colors text-whatsapp-foreground font-semibold px-6 py-4 whitespace-nowrap"
+              className="cta-button inline-flex items-center justify-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-semibold px-6 py-4 whitespace-nowrap"
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" />
               Começar agora pelo WhatsApp
