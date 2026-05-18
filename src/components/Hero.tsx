@@ -1,7 +1,5 @@
 import { MessageCircle, Trophy } from "lucide-react";
-// Hero background: imagem gerada por IA (Lovable AI), sem banco de imagens.
-// Brief: profissional brasileiro liderando reunião em ambiente corporativo moderno.
-import heroImg from "@/assets/hero-v2.jpg";
+import heroImg from "@/assets/hero-v1.jpg";
 import logoIntegrado from "@/assets/grupointegrado.png";
 import { modalStore } from "@/lib/modal-store";
 import { track } from "@/lib/tracking";
