@@ -93,7 +93,7 @@ export function Areas() {
             </div>
             <button
               onClick={handleFaixaCta}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover transition-colors text-whatsapp-foreground font-semibold px-6 py-4 whitespace-nowrap"
+              className="cta-button inline-flex items-center justify-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-semibold px-6 py-4 whitespace-nowrap"
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" />
               Começar agora pelo WhatsApp
