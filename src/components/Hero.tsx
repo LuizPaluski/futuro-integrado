@@ -1,16 +1,9 @@
-import { MessageCircle, Trophy } from "lucide-react";
+import { MessageCircle, Trophy, Medal, CalendarCheck, Monitor } from "lucide-react";
 import heroImg from "@/assets/hero-v1.jpg";
 import logoIntegrado from "@/assets/grupointegrado.png";
 import { whatsappLink } from "@/lib/constants";
 import { track } from "@/lib/tracking";
 
-type Selo = { texto: string; destaque?: boolean };
-const SELOS: Selo[] = [
-  { texto: "Nº 1 do Paraná em Centro Universitário", destaque: true },
-  { texto: "Nota máxima no MEC" },
-  { texto: "40 anos" },
-  { texto: "100% EAD" },
-];
 
 export function Hero() {
   const handleCta = () => {
