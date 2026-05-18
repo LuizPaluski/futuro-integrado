@@ -1,70 +1,103 @@
 /**
- * Lista de cursos de pós-graduação por área.
- * CLIENTE: substituir/ampliar com a lista oficial do Grupo Integrado.
+ * Lista oficial de cursos de pós-graduação do Grupo Integrado por área.
  */
-export type Curso = { nome: string; area: string };
+export type Course = {
+  nome: string;
+  area:
+    | "Direito"
+    | "Educação"
+    | "Engenharia"
+    | "Gestão e RH"
+    | "Saúde"
+    | "Tecnologia"
+    | "Outras áreas";
+};
 
-export const CURSOS: Curso[] = [
+export const courses: Course[] = [
   // Direito
-  { nome: "Direito Civil e Processual Civil", area: "Direito" },
+  { nome: "Direito Trabalhista e Previdenciário", area: "Direito" },
   { nome: "Direito Penal e Processual Penal", area: "Direito" },
-  { nome: "Direito do Trabalho e Processual do Trabalho", area: "Direito" },
-  { nome: "Direito Tributário", area: "Direito" },
-  { nome: "Direito de Família e Sucessões", area: "Direito" },
-  { nome: "Direito Empresarial", area: "Direito" },
-  { nome: "Direito Médico e da Saúde", area: "Direito" },
+  { nome: "Direito Civil e Processual Civil", area: "Direito" },
+  { nome: "Direito Notarial e Registral", area: "Direito" },
 
   // Educação
-  { nome: "Psicopedagogia Clínica e Institucional", area: "Educação" },
-  { nome: "Educação Especial e Inclusiva", area: "Educação" },
-  { nome: "Neuropsicopedagogia", area: "Educação" },
-  { nome: "Gestão Escolar e Coordenação Pedagógica", area: "Educação" },
-  { nome: "Alfabetização e Letramento", area: "Educação" },
+  { nome: "Docência na Educação Superior", area: "Educação" },
+  { nome: "Pedagogia: Abordagens de Desenvolvimento e Aprendizagem", area: "Educação" },
+  { nome: "Psicopedagogia", area: "Educação" },
+  { nome: "Práticas Inovadoras na Educação", area: "Educação" },
+  { nome: "Docência na Educação Superior em Saúde", area: "Educação" },
   { nome: "Educação Infantil", area: "Educação" },
-  { nome: "Docência no Ensino Superior", area: "Educação" },
+  { nome: "Educação Especial Inclusiva", area: "Educação" },
 
   // Engenharia
-  { nome: "Engenharia de Segurança do Trabalho", area: "Engenharia" },
-  { nome: "Engenharia Civil com Ênfase em Estruturas", area: "Engenharia" },
-  { nome: "Engenharia de Produção", area: "Engenharia" },
-  { nome: "Engenharia Ambiental e Sanitária", area: "Engenharia" },
-  { nome: "BIM - Building Information Modeling", area: "Engenharia" },
-  { nome: "Gerenciamento de Obras e Projetos", area: "Engenharia" },
+  { nome: "Engenharia de Estruturas e Fundações", area: "Engenharia" },
+  { nome: "Engenharia e Gestão da Produção", area: "Engenharia" },
+  { nome: "Engenharia de Automação e Elétrica Industrial", area: "Engenharia" },
 
   // Gestão e RH
   { nome: "MBA em Gestão de Pessoas", area: "Gestão e RH" },
+  { nome: "MBA em Controladoria", area: "Gestão e RH" },
+  { nome: "MBA em Coaching Aplicado à Gestão de Pessoas", area: "Gestão e RH" },
+  { nome: "MBA em Logística e Gestão da Cadeia de Suprimentos", area: "Gestão e RH" },
+  { nome: "MBA em Gestão Estratégica de Marketing e Vendas", area: "Gestão e RH" },
+  { nome: "MBA em Gestão de Marketing", area: "Gestão e RH" },
+  { nome: "MBA em Gestão de Projetos e Metodologias Ágeis", area: "Gestão e RH" },
+  { nome: "MBA Agro360: Gestão, Inovação e Estratégia", area: "Gestão e RH" },
+  { nome: "MBA em Gestão Contábil e Finanças Empresariais", area: "Gestão e RH" },
+  { nome: "MBA em Gestão Financeira", area: "Gestão e RH" },
+  { nome: "MBA em Gestão Comercial", area: "Gestão e RH" },
   { nome: "MBA em Gestão Empresarial", area: "Gestão e RH" },
-  { nome: "MBA em Gestão Financeira e Controladoria", area: "Gestão e RH" },
+  { nome: "MBA em Gestão de Negócios Inovadores", area: "Gestão e RH" },
+  { nome: "MBA em Gestão Pública", area: "Gestão e RH" },
   { nome: "MBA em Marketing Digital", area: "Gestão e RH" },
-  { nome: "MBA em Gestão de Projetos", area: "Gestão e RH" },
-  { nome: "MBA em Liderança e Coaching", area: "Gestão e RH" },
-  { nome: "MBA em Logística e Supply Chain", area: "Gestão e RH" },
+  { nome: "MBA em Gestão de Investimentos", area: "Gestão e RH" },
+  { nome: "MBA em Gestão Hospitalar", area: "Gestão e RH" },
+  { nome: "MBA em Gestão de Saúde", area: "Gestão e RH" },
+  { nome: "MBA em Gestão da Assistência em Saúde", area: "Gestão e RH" },
+  { nome: "MBA em Auditoria, Controladoria e Perícia Contábil", area: "Gestão e RH" },
 
   // Saúde
-  { nome: "Enfermagem do Trabalho", area: "Saúde" },
-  { nome: "Urgência, Emergência e UTI", area: "Saúde" },
-  { nome: "Saúde Mental e Atenção Psicossocial", area: "Saúde" },
-  { nome: "Fisioterapia Traumato-Ortopédica", area: "Saúde" },
-  { nome: "Nutrição Clínica e Esportiva", area: "Saúde" },
-  { nome: "Saúde Pública e da Família", area: "Saúde" },
+  { nome: "Fisioterapia Hospitalar", area: "Saúde" },
+  { nome: "Saúde Pública", area: "Saúde" },
+  { nome: "Ergonomia e Saúde do Trabalho", area: "Saúde" },
+  { nome: "Fisioterapia Esportiva", area: "Saúde" },
+  { nome: "Análises Clínicas", area: "Saúde" },
+  { nome: "Farmácia Clínica e Hospitalar", area: "Saúde" },
+  { nome: "Farmacologia", area: "Saúde" },
+  { nome: "Farmacologia e Interações Medicamentosas", area: "Saúde" },
+  { nome: "Manipulação Farmacêutica", area: "Saúde" },
+  { nome: "Nutrição Materno-Infantil", area: "Saúde" },
+  { nome: "Nutrição Clínica Hospitalar e Ambulatorial", area: "Saúde" },
+  { nome: "Enfermagem em Pediatria e Neonatologia", area: "Saúde" },
+  { nome: "Fisiologia do Exercício", area: "Saúde" },
+  { nome: "Biomecânica da Atividade Física e Reabilitação", area: "Saúde" },
+  { nome: "Saúde Mental nas Organizações", area: "Saúde" },
+  { nome: "Implantodontia", area: "Saúde" },
+  { nome: "Enfermagem Ginecológica e Obstétrica", area: "Saúde" },
+  { nome: "Enfermagem em Urgência e Emergência", area: "Saúde" },
+  { nome: "Estética: Procedimentos Injetáveis", area: "Saúde" },
 
   // Tecnologia
   { nome: "Engenharia de Software", area: "Tecnologia" },
-  { nome: "Ciência de Dados e Big Data", area: "Tecnologia" },
-  { nome: "Inteligência Artificial e Machine Learning", area: "Tecnologia" },
-  { nome: "Segurança da Informação e Cibersegurança", area: "Tecnologia" },
-  { nome: "DevOps e Arquitetura em Nuvem", area: "Tecnologia" },
-  { nome: "Desenvolvimento Full Stack", area: "Tecnologia" },
-  { nome: "UX/UI Design", area: "Tecnologia" },
+  { nome: "Banco de Dados", area: "Tecnologia" },
+  { nome: "MBA em DevOps, DevSecOps e Cloud", area: "Tecnologia" },
+  { nome: "FullStack e Desenvolvimento Inteligente", area: "Tecnologia" },
 
   // Outras áreas
-  { nome: "Psicologia Organizacional e do Trabalho", area: "Outras áreas" },
-  { nome: "Terapia Cognitivo-Comportamental", area: "Outras áreas" },
-  { nome: "Comunicação e Mídias Digitais", area: "Outras áreas" },
-  { nome: "Agronegócio e Gestão do Agro", area: "Outras áreas" },
-  { nome: "Arquitetura de Interiores", area: "Outras áreas" },
-  { nome: "Gastronomia e Confeitaria", area: "Outras áreas" },
+  { nome: "Assistência Técnica e Extensão Rural", area: "Outras áreas" },
+  { nome: "Manejo de Pragas em Culturas Agrícolas", area: "Outras áreas" },
+  { nome: "Fisiologia Vegetal e Desenvolvimento de Plantas", area: "Outras áreas" },
+  { nome: "Mecanização Agrícola", area: "Outras áreas" },
+  { nome: "Estudos Literários", area: "Outras áreas" },
+  { nome: "Jornalismo Digital: Novas Narrativas e Estratégias de Conteúdo", area: "Outras áreas" },
+  { nome: "Treinamento Personalizado", area: "Outras áreas" },
+  { nome: "Design de Interiores e Conforto Ambiental", area: "Outras áreas" },
+  { nome: "Planejamento Urbano e Regional", area: "Outras áreas" },
 ];
+
+// Aliases para compatibilidade com o componente de busca.
+export type Curso = Course;
+export const CURSOS = courses;
 
 export function normalize(s: string): string {
   return s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
