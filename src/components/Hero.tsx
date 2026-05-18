@@ -1,7 +1,7 @@
 import { MessageCircle, Trophy } from "lucide-react";
 import heroImg from "@/assets/hero-v1.jpg";
 import logoIntegrado from "@/assets/grupointegrado.png";
-import { modalStore } from "@/lib/modal-store";
+import { whatsappLink } from "@/lib/constants";
 import { track } from "@/lib/tracking";
 
 type Selo = { texto: string; destaque?: boolean };
