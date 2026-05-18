@@ -27,7 +27,7 @@ export function Hero() {
       <img
         src={heroImg}
         alt="Profissional em ambiente corporativo apresentando para sua equipe"
-        aria-hidden="true"
+        
         className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
         fetchPriority="high"
       />
