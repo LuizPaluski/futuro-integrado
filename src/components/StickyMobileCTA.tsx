@@ -40,10 +40,8 @@ export function StickyMobileCTA() {
     };
   }, []);
 
-  const open = () => {
+  const onClick = () => {
     track("click_cta_hero", { source: "sticky_mobile" });
-    track("open_popup_curso", { source: "sticky_mobile" });
-    modalStore.openModal();
   };
 
   return (
@@ -53,14 +51,17 @@ export function StickyMobileCTA() {
         visible ? "is-visible" : ""
       }`}
     >
-      <button
-        onClick={open}
+      <a
+        href={whatsappLink()}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={onClick}
         tabIndex={visible ? 0 : -1}
         className="cta-button cta-pulse w-full inline-flex items-center justify-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-semibold text-base px-6 py-4 shadow-lg shadow-black/20"
       >
         <MessageCircle className="h-5 w-5" aria-hidden="true" />
         Fale com a gente
-      </button>
+      </a>
     </div>
   );
 }
