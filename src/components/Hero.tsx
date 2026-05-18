@@ -23,9 +23,9 @@ export function Hero() {
       <img
         src={heroImg}
         alt="Profissional em ambiente corporativo apresentando para sua equipe"
-        
-        className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+        className="absolute inset-0 -z-10 h-full w-full object-cover object-[center_top] md:object-center"
         fetchPriority="high"
+        decoding="async"
       />
       {/* Overlay forte para garantir contraste WCAG AAA no headline */}
       <div
@@ -55,7 +55,7 @@ export function Hero() {
             <li
               key={s.texto}
               className={[
-                "rounded-full backdrop-blur-sm px-3 py-2 text-xs md:text-sm text-white text-center min-h-[44px] flex items-center justify-center leading-snug",
+                "rounded-full backdrop-blur-sm px-3 py-2 text-[0.8rem] md:text-sm text-white text-center min-h-[44px] flex items-center justify-center leading-snug",
                 s.destaque
                   ? "col-span-2 md:col-span-1 border border-accent bg-accent/25 font-semibold gap-1.5"
                   : "border border-gold/60 bg-navy/40",
@@ -64,7 +64,7 @@ export function Hero() {
               {s.destaque && (
                 <Trophy className="h-4 w-4 text-accent shrink-0" aria-hidden="true" />
               )}
-              <span>{s.texto}</span>
+              <span className="break-words hyphens-auto">{s.texto}</span>
             </li>
           ))}
         </ul>
@@ -72,9 +72,9 @@ export function Hero() {
 
       {/* Conteúdo */}
       <div className="flex-1 flex items-center px-5 md:px-10 py-12 md:py-20">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl w-full">
           <h1
-            className="font-serif text-white text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold leading-[1.05]"
+            className="font-serif text-white text-[2rem] sm:text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold leading-[1.1] md:leading-[1.05] text-balance"
             style={{ textShadow: "0 2px 16px rgba(0,0,0,0.45)" }}
           >
             Sua próxima promoção começa com uma decisão.
@@ -83,7 +83,7 @@ export function Hero() {
           <div className="mt-6 md:mt-8 h-px w-24 bg-gold" aria-hidden="true" />
 
           <p
-            className="mt-6 md:mt-8 text-white font-sans font-normal text-lg md:text-2xl leading-snug max-w-2xl"
+            className="mt-6 md:mt-8 text-white font-sans font-normal text-base sm:text-lg md:text-2xl leading-relaxed md:leading-snug max-w-2xl"
             style={{ textShadow: "0 1px 8px rgba(0,0,0,0.5)" }}
           >
             Pós-graduação 100% EAD. Você escolhe o curso, entra em contato pelo
@@ -97,7 +97,7 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleCta}
-              className="cta-button cta-pulse inline-flex items-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-semibold text-base md:text-lg px-6 md:px-8 py-4 shadow-lg shadow-black/30"
+              className="cta-button cta-pulse flex md:inline-flex w-full md:w-auto max-w-[480px] items-center justify-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-bold text-base md:text-lg px-6 md:px-8 min-h-[52px] py-4 shadow-lg shadow-black/30"
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" />
               Quero conhecer a pós

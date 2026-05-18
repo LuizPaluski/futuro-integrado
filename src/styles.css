@@ -92,6 +92,7 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
@@ -100,6 +101,16 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     line-height: 1.5;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  input, textarea, select {
+    font-size: 16px; /* evita zoom automático em iOS */
+  }
+
+  button, a {
+    touch-action: manipulation;
   }
 
   h1, h2, h3, .font-serif {
@@ -123,6 +134,15 @@
   }
 }
 
+@keyframes cta-pulse-mobile {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4), 0 10px 24px -8px rgba(0, 0, 0, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(37, 211, 102, 0), 0 10px 24px -8px rgba(0, 0, 0, 0.35);
+  }
+}
+
 .cta-button {
   transition: transform 200ms ease-out, box-shadow 200ms ease-out, background-color 200ms ease-out;
   will-change: transform, box-shadow;
@@ -136,6 +156,24 @@
 }
 .cta-pulse {
   animation: cta-pulse 2s infinite ease-in-out;
+}
+
+@media (max-width: 767px) {
+  .cta-pulse {
+    animation: cta-pulse-mobile 2.4s infinite ease-in-out;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-pulse {
+    animation: none;
+  }
+  .cta-button {
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* Vignette radial sutil para hero */

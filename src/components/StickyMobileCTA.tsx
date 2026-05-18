@@ -9,23 +9,41 @@ export function StickyMobileCTA() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const heroCta = document.querySelector<HTMLElement>("[data-hero-cta]");
+    const finalCta = document.querySelector<HTMLElement>("[data-final-cta]");
 
     let heroInView = true;
+    let finalInView = false;
     const updateVisibility = () => {
       const scrolledEnough = window.scrollY > 600;
-      setVisible(!heroInView || scrolledEnough);
+      setVisible((!heroInView || scrolledEnough) && !finalInView);
     };
 
-    let observer: IntersectionObserver | null = null;
-    if (heroCta && "IntersectionObserver" in window) {
-      observer = new IntersectionObserver(
-        ([entry]) => {
-          heroInView = entry.isIntersecting;
-          updateVisibility();
-        },
-        { threshold: 0 },
-      );
-      observer.observe(heroCta);
+    const observers: IntersectionObserver[] = [];
+    if ("IntersectionObserver" in window) {
+      if (heroCta) {
+        const o = new IntersectionObserver(
+          ([entry]) => {
+            heroInView = entry.isIntersecting;
+            updateVisibility();
+          },
+          { threshold: 0 },
+        );
+        o.observe(heroCta);
+        observers.push(o);
+      } else {
+        heroInView = false;
+      }
+      if (finalCta) {
+        const o = new IntersectionObserver(
+          ([entry]) => {
+            finalInView = entry.isIntersecting;
+            updateVisibility();
+          },
+          { threshold: 0 },
+        );
+        o.observe(finalCta);
+        observers.push(o);
+      }
     } else {
       heroInView = false;
     }
@@ -35,7 +53,7 @@ export function StickyMobileCTA() {
     updateVisibility();
 
     return () => {
-      observer?.disconnect();
+      observers.forEach((o) => o.disconnect());
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
@@ -47,9 +65,10 @@ export function StickyMobileCTA() {
   return (
     <div
       aria-hidden={!visible}
-      className={`sticky-float md:hidden fixed bottom-0 inset-x-0 z-40 p-3 bg-gradient-to-t from-background via-background/95 to-background/0 pt-6 ${
+      className={`sticky-float md:hidden fixed bottom-0 inset-x-0 z-40 px-4 pt-6 bg-gradient-to-t from-background via-background/95 to-background/0 ${
         visible ? "is-visible" : ""
       }`}
+      style={{ paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 12px)" }}
     >
       <a
         href={whatsappLink()}
@@ -57,7 +76,7 @@ export function StickyMobileCTA() {
         rel="noopener noreferrer"
         onClick={onClick}
         tabIndex={visible ? 0 : -1}
-        className="cta-button cta-pulse w-full inline-flex items-center justify-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-semibold text-base px-6 py-4 shadow-lg shadow-black/20"
+        className="cta-button cta-pulse w-full max-w-[480px] mx-auto flex items-center justify-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-bold text-base px-6 min-h-[52px] py-4 shadow-lg shadow-black/20"
       >
         <MessageCircle className="h-5 w-5" aria-hidden="true" />
         Fale com a gente
