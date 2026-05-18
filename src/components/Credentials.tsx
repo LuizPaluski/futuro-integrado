@@ -12,8 +12,6 @@ const ITENS = [
 export function Credentials() {
   const handleCta = () => {
     track("click_cta_credenciais");
-    track("open_popup_curso", { source: "credenciais" });
-    modalStore.openModal();
   };
 
   return (
