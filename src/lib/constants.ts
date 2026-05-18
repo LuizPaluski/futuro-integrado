@@ -22,3 +22,12 @@ export function buildWhatsappUrl(curso: string): string {
   const texto = `Oi, tenho interesse no curso de ${curso}`;
   return `https://wa.me/${NUMERO_COMERCIAL}?text=${encodeURIComponent(texto)}`;
 }
+
+/**
+ * Helper genérico para CTAs que abrem o WhatsApp direto, sem popup.
+ * Use whatsappLink() para mensagem padrão ou passe uma mensagem específica.
+ */
+export function whatsappLink(mensagem?: string): string {
+  const texto = mensagem ?? "Olá! Quero saber mais sobre a pós do Integrado.";
+  return `https://wa.me/${NUMERO_COMERCIAL}?text=${encodeURIComponent(texto)}`;
+}
