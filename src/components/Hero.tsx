@@ -1,7 +1,7 @@
 import { MessageCircle, Trophy } from "lucide-react";
 import heroImg from "@/assets/hero-v1.jpg";
 import logoIntegrado from "@/assets/grupointegrado.png";
-import { modalStore } from "@/lib/modal-store";
+import { whatsappLink } from "@/lib/constants";
 import { track } from "@/lib/tracking";
 
 type Selo = { texto: string; destaque?: boolean };
@@ -15,8 +15,6 @@ const SELOS: Selo[] = [
 export function Hero() {
   const handleCta = () => {
     track("click_cta_hero");
-    track("open_popup_curso", { source: "hero" });
-    modalStore.openModal();
   };
 
   return (
@@ -93,14 +91,17 @@ export function Hero() {
           </p>
 
           <div className="mt-8 md:mt-10">
-            <button
+            <a
               data-hero-cta
+              href={whatsappLink("Olá! Quero conhecer a pós do Integrado.")}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={handleCta}
               className="cta-button cta-pulse inline-flex items-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-semibold text-base md:text-lg px-6 md:px-8 py-4 shadow-lg shadow-black/30"
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" />
               Quero conhecer a pós
-            </button>
+            </a>
             <p className="mt-3 text-gold text-sm md:text-base">
               Vagas abertas para turmas deste mês.
             </p>

@@ -10,7 +10,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { modalStore } from "@/lib/modal-store";
+import { whatsappLink } from "@/lib/constants";
 import { track } from "@/lib/tracking";
 
 type Area = { nome: string; Icon: LucideIcon };
@@ -33,15 +33,16 @@ const SELOS = [
 ];
 
 function AreaCard({ area }: { area: Area }) {
-  const open = () => {
+  const onClick = () => {
     track("click_area_card", { area: area.nome });
-    track("open_popup_curso", { source: "area_card", area: area.nome });
-    modalStore.openModal(area.nome);
   };
   return (
-    <button
-      onClick={open}
-      className="cta-button group text-left rounded-2xl border border-beige bg-card p-5 md:p-6 hover:border-accent hover:-translate-y-0.5"
+    <a
+      href={whatsappLink(`Olá! Tenho interesse na área de ${area.nome}.`)}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={onClick}
+      className="cta-button group text-left rounded-2xl border border-beige bg-card p-5 md:p-6 hover:border-accent hover:-translate-y-0.5 block"
     >
       <div className="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center">
         <area.Icon className="h-5 w-5" aria-hidden="true" />
@@ -52,14 +53,13 @@ function AreaCard({ area }: { area: Area }) {
       <span className="mt-4 inline-flex items-center justify-center rounded-lg border border-navy/40 px-3 py-1.5 text-xs md:text-sm font-semibold text-navy group-hover:bg-navy group-hover:text-primary-foreground transition-colors">
         Quero esta área
       </span>
-    </button>
+    </a>
   );
 }
 
 export function Areas() {
   const handleFaixaCta = () => {
-    track("open_popup_curso", { source: "faixa_institucional" });
-    modalStore.openModal();
+    track("click_cta_faixa_institucional");
   };
 
   return (
@@ -94,13 +94,16 @@ export function Areas() {
                 escolhe a turma e já começa.
               </p>
             </div>
-            <button
+            <a
+              href={whatsappLink("Olá! Quero começar minha matrícula na pós.")}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={handleFaixaCta}
               className="cta-button inline-flex items-center justify-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-semibold px-6 py-4 whitespace-nowrap"
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" />
               Começar agora pelo WhatsApp
-            </button>
+            </a>
           </div>
         </div>
 
