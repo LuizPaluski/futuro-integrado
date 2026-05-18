@@ -59,8 +59,7 @@ function AreaCard({ area }: { area: Area }) {
 
 export function Areas() {
   const handleFaixaCta = () => {
-    track("open_popup_curso", { source: "faixa_institucional" });
-    modalStore.openModal();
+    track("click_cta_faixa_institucional");
   };
 
   return (
