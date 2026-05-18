@@ -42,13 +42,16 @@ export function Credentials() {
         </div>
 
         <div className="mt-12 md:mt-16 flex justify-center">
-          <button
+          <a
+            href={whatsappLink("Olá! Quero falar com um consultor sobre a pós.")}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={handleCta}
             className="cta-button inline-flex items-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-semibold text-base md:text-lg px-6 md:px-8 py-4"
           >
             <MessageCircle className="h-5 w-5" aria-hidden="true" />
             Falar com um consultor agora
-          </button>
+          </a>
         </div>
       </div>
     </section>
