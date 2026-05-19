@@ -38,22 +38,23 @@ function AreaCard({ area }: { area: Area }) {
     track("open_popup_curso", { source: "area_card", area: area.nome });
     modalStore.openModal(area.nome);
   };
+
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="group h-full w-full text-left rounded-2xl border border-beige bg-card p-6 hover:border-accent focus-visible:border-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 md:hover:-translate-y-0.5 transition-colors flex flex-col min-h-[160px]"
-    >
-      <div className="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center">
+    <div className="flex h-full min-h-[220px] w-full flex-col rounded-2xl border border-beige bg-card p-6 text-left transition-colors hover:border-accent focus-within:border-accent md:hover:-translate-y-0.5">
+      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-accent">
         <area.Icon className="h-5 w-5" aria-hidden="true" />
       </div>
-      <div className="font-serif mt-4 text-base md:text-xl font-bold text-navy leading-tight">
+      <h3 className="mb-4 font-serif text-base font-bold leading-tight text-navy md:text-xl">
         {area.nome}
-      </div>
-      <span className="mt-auto pt-4 w-full inline-flex items-center justify-center rounded-lg border border-navy/40 px-3 min-h-11 text-xs md:text-sm font-semibold text-navy group-hover:bg-navy group-hover:text-primary-foreground transition-colors">
+      </h3>
+      <button
+        type="button"
+        onClick={onClick}
+        className="mt-auto inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-navy/40 px-4 py-3 text-xs font-semibold text-navy transition-colors hover:bg-navy hover:text-primary-foreground focus:outline-none focus-visible:bg-navy focus-visible:text-primary-foreground focus-visible:ring-2 focus-visible:ring-accent/50 md:text-sm"
+      >
         Quero esta área
-      </span>
-    </button>
+      </button>
+    </div>
   );
 }
 
