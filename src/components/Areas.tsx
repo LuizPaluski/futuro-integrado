@@ -35,12 +35,12 @@ const SELOS = [
 function AreaCard({ area }: { area: Area }) {
   const onClick = () => {
     track("click_area_card", { area: area.nome });
+    track("open_popup_curso", { source: "area_card", area: area.nome });
+    modalStore.openModal(area.nome);
   };
   return (
-    <a
-      href={whatsappLink(`Olá! Tenho interesse na área de ${area.nome}.`)}
-      target="_blank"
-      rel="noopener noreferrer"
+    <button
+      type="button"
       onClick={onClick}
       className="cta-button group text-left rounded-2xl border border-beige bg-card p-5 md:p-6 hover:border-accent md:hover:-translate-y-0.5 flex flex-col min-h-[160px]"
     >
@@ -53,7 +53,7 @@ function AreaCard({ area }: { area: Area }) {
       <span className="mt-auto pt-4 w-full inline-flex items-center justify-center rounded-lg border border-navy/40 px-3 min-h-11 text-xs md:text-sm font-semibold text-navy group-hover:bg-navy group-hover:text-primary-foreground transition-colors">
         Quero esta área
       </span>
-    </a>
+    </button>
   );
 }
 
