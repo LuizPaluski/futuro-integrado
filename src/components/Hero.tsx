@@ -1,13 +1,15 @@
 import { MessageCircle, Trophy, Medal, CalendarCheck, Monitor } from "lucide-react";
 import heroImg from "@/assets/hero-v1.jpg";
 import logoIntegrado from "@/assets/grupointegrado.png";
-import { whatsappLink } from "@/lib/constants";
+import { modalStore } from "@/lib/modal-store";
 import { track } from "@/lib/tracking";
 
 
 export function Hero() {
   const handleCta = () => {
     track("click_cta_hero");
+    track("open_popup_curso", { source: "hero" });
+    modalStore.openModal();
   };
 
   return (
