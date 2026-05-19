@@ -124,17 +124,6 @@ export function Areas() {
           </ul>
         </div>
 
-        {/* Depoimento - PLACEHOLDER
-            CLIENTE: estrutura pronta para receber foto, nome, profissão,
-            cidade/PR e citação curta. Substituir quando o Grupo Integrado
-            entregar os depoimentos reais. */}
-        <div className="mt-12 md:mt-16 max-w-2xl mx-auto rounded-2xl border border-gold/50 bg-card p-8 md:p-10 text-center">
-          <div className="mx-auto h-16 w-16 rounded-full bg-beige" aria-hidden="true" />
-          <p className="mt-5 text-base md:text-lg text-muted-foreground italic">
-            "Espaço reservado para depoimentos reais de alunos. Estrutura de
-            coleta em construção pelo Grupo Integrado."
-          </p>
-        </div>
       </div>
     </section>
   );
