@@ -100,7 +100,7 @@ export function Areas() {
               data-final-cta
               type="button"
               onClick={handleFaixaCta}
-              className="cta-button flex md:inline-flex w-full md:w-auto items-center justify-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-bold px-6 min-h-[52px] py-4 whitespace-nowrap"
+              className="cta-button cta-pulse flex md:inline-flex w-full md:w-auto items-center justify-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-bold text-base md:text-lg px-6 md:px-8 min-h-[52px] py-4 shadow-lg shadow-black/30 whitespace-nowrap"
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" />
               Começar agora pelo WhatsApp

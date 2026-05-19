@@ -74,7 +74,7 @@ export function Objections() {
           <button
             type="button"
             onClick={handleCta}
-            className="cta-button inline-flex items-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-semibold text-base md:text-lg px-6 md:px-8 py-4"
+            className="cta-button cta-pulse flex md:inline-flex w-full md:w-auto max-w-[480px] items-center justify-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-bold text-base md:text-lg px-6 md:px-8 min-h-[52px] py-4 shadow-lg shadow-black/30"
           >
             <MessageCircle className="h-5 w-5" aria-hidden="true" />
             Tirar minhas dúvidas no WhatsApp
