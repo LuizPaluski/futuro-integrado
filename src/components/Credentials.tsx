@@ -1,5 +1,5 @@
 import { Medal, Trophy, CalendarCheck, Users, MessageCircle } from "lucide-react";
-import { whatsappLink } from "@/lib/constants";
+import { modalStore } from "@/lib/modal-store";
 import { track } from "@/lib/tracking";
 
 const ITENS = [
