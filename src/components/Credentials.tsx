@@ -1,5 +1,5 @@
 import { Medal, Trophy, CalendarCheck, Users, MessageCircle } from "lucide-react";
-import { whatsappLink } from "@/lib/constants";
+import { modalStore } from "@/lib/modal-store";
 import { track } from "@/lib/tracking";
 
 const ITENS = [
@@ -12,6 +12,8 @@ const ITENS = [
 export function Credentials() {
   const handleCta = () => {
     track("click_cta_credenciais");
+    track("open_popup_curso", { source: "credenciais" });
+    modalStore.openModal();
   };
 
   return (
@@ -42,16 +44,14 @@ export function Credentials() {
         </div>
 
         <div className="mt-12 md:mt-16 flex justify-center px-5 md:px-0">
-          <a
-            href={whatsappLink("Olá! Quero falar com um consultor sobre a pós.")}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
             onClick={handleCta}
             className="cta-button flex md:inline-flex w-full md:w-auto max-w-[480px] items-center justify-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-bold text-base md:text-lg px-6 md:px-8 min-h-[52px] py-4"
           >
             <MessageCircle className="h-5 w-5" aria-hidden="true" />
             Falar com um consultor agora
-          </a>
+          </button>
         </div>
       </div>
     </section>

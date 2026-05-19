@@ -1,7 +1,7 @@
 import { useId, useMemo, useRef, useState, useEffect, type KeyboardEvent } from "react";
 import { Search, X, MessageCircle } from "lucide-react";
 import { CURSOS, normalize, type Curso } from "@/constants/courses";
-import { buildWhatsappUrl, NUMERO_COMERCIAL } from "@/lib/constants";
+import { modalStore } from "@/lib/modal-store";
 import { track } from "@/lib/tracking";
 
 const MAX_RESULTS = 8;
@@ -46,15 +46,15 @@ export function CourseSearch() {
 
   const selectCourse = (curso: Curso) => {
     track("course_search_select", { curso: curso.nome, area: curso.area });
-    const texto = `Olá! Tenho interesse na pós em ${curso.nome}.`;
-    const url = `https://wa.me/${NUMERO_COMERCIAL}?text=${encodeURIComponent(texto)}`;
-    window.open(url, "_blank", "noopener,noreferrer");
+    track("open_popup_curso", { source: "course_search", curso: curso.nome });
+    modalStore.openModal(curso.nome);
     setOpen(false);
   };
 
   const openConsultor = () => {
     track("course_search_no_match", { query });
-    window.open(buildWhatsappUrl("pós-graduação"), "_blank", "noopener,noreferrer");
+    track("open_popup_curso", { source: "course_search_no_match" });
+    modalStore.openModal();
     setOpen(false);
   };
 

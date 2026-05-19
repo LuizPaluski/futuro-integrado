@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
-import { whatsappLink } from "@/lib/constants";
+import { modalStore } from "@/lib/modal-store";
 import { track } from "@/lib/tracking";
 
 export function StickyMobileCTA() {
@@ -60,6 +60,8 @@ export function StickyMobileCTA() {
 
   const onClick = () => {
     track("click_cta_hero", { source: "sticky_mobile" });
+    track("open_popup_curso", { source: "sticky_mobile" });
+    modalStore.openModal();
   };
 
   return (
@@ -70,17 +72,15 @@ export function StickyMobileCTA() {
       }`}
       style={{ paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 12px)" }}
     >
-      <a
-        href={whatsappLink()}
-        target="_blank"
-        rel="noopener noreferrer"
+      <button
+        type="button"
         onClick={onClick}
         tabIndex={visible ? 0 : -1}
         className="cta-button cta-pulse w-full max-w-[480px] mx-auto flex items-center justify-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-bold text-base px-6 min-h-[52px] py-4 shadow-lg shadow-black/20"
       >
         <MessageCircle className="h-5 w-5" aria-hidden="true" />
         Fale com a gente
-      </a>
+      </button>
     </div>
   );
 }

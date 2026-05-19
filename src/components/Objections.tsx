@@ -1,5 +1,5 @@
 import { MessageCircle, Clock, TrendingUp, Award } from "lucide-react";
-import { whatsappLink } from "@/lib/constants";
+import { modalStore } from "@/lib/modal-store";
 import { track } from "@/lib/tracking";
 
 const BLOCOS = [
@@ -39,6 +39,8 @@ const BLOCOS = [
 export function Objections() {
   const handleCta = () => {
     track("click_cta_objections");
+    track("open_popup_curso", { source: "objections" });
+    modalStore.openModal();
   };
 
   return (
@@ -69,16 +71,14 @@ export function Objections() {
         </div>
 
         <div className="mt-12 md:mt-16 flex justify-center">
-          <a
-            href={whatsappLink("Olá! Tenho algumas dúvidas sobre a pós.")}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
             onClick={handleCta}
             className="cta-button inline-flex items-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-semibold text-base md:text-lg px-6 md:px-8 py-4"
           >
             <MessageCircle className="h-5 w-5" aria-hidden="true" />
             Tirar minhas dúvidas no WhatsApp
-          </a>
+          </button>
         </div>
       </div>
     </section>

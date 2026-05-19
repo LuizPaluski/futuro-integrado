@@ -40,12 +40,32 @@ export function CourseSelectionModal() {
       setError("Informe o curso de interesse para continuar.");
       return;
     }
-    // Evento de conversão - DISPARAR ANTES do redirect
-    track("lead_whatsapp", { curso_interesse: value });
-    track("submit_popup_curso", { curso_interesse: value });
     const url = buildWhatsappUrl(value);
-    window.open(url, "_blank", "noopener,noreferrer");
+
+    // GA4 / Google Ads - evento padrão de geração de lead
+    if (typeof window !== "undefined" && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
+      (window as unknown as { gtag: (...args: unknown[]) => void }).gtag("event", "generate_lead", {
+        event_category: "whatsapp",
+        event_label: value,
+        value: 1,
+      });
+    }
+    // Meta Pixel
+    if (typeof window !== "undefined" && (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq) {
+      (window as unknown as { fbq: (...args: unknown[]) => void }).fbq("track", "Lead", {
+        content_name: value,
+        content_category: "pos-graduacao",
+      });
+    }
+    // GTM dataLayer
+    track("lead_whatsapp", { curso: value });
+    track("submit_popup_curso", { curso_interesse: value });
+
     modalStore.closeModal();
+    // Delay para os pixels dispararem antes do redirect
+    setTimeout(() => {
+      window.open(url, "_blank", "noopener,noreferrer");
+    }, 300);
   };
 
   return (

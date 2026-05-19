@@ -10,7 +10,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { whatsappLink } from "@/lib/constants";
+import { modalStore } from "@/lib/modal-store";
 import { track } from "@/lib/tracking";
 
 type Area = { nome: string; Icon: LucideIcon };
@@ -35,12 +35,12 @@ const SELOS = [
 function AreaCard({ area }: { area: Area }) {
   const onClick = () => {
     track("click_area_card", { area: area.nome });
+    track("open_popup_curso", { source: "area_card", area: area.nome });
+    modalStore.openModal(area.nome);
   };
   return (
-    <a
-      href={whatsappLink(`Olá! Tenho interesse na área de ${area.nome}.`)}
-      target="_blank"
-      rel="noopener noreferrer"
+    <button
+      type="button"
       onClick={onClick}
       className="cta-button group text-left rounded-2xl border border-beige bg-card p-5 md:p-6 hover:border-accent md:hover:-translate-y-0.5 flex flex-col min-h-[160px]"
     >
@@ -53,13 +53,15 @@ function AreaCard({ area }: { area: Area }) {
       <span className="mt-auto pt-4 w-full inline-flex items-center justify-center rounded-lg border border-navy/40 px-3 min-h-11 text-xs md:text-sm font-semibold text-navy group-hover:bg-navy group-hover:text-primary-foreground transition-colors">
         Quero esta área
       </span>
-    </a>
+    </button>
   );
 }
 
 export function Areas() {
   const handleFaixaCta = () => {
     track("click_cta_faixa_institucional");
+    track("open_popup_curso", { source: "faixa_institucional" });
+    modalStore.openModal();
   };
 
   return (
@@ -94,17 +96,15 @@ export function Areas() {
                 escolhe a turma e já começa.
               </p>
             </div>
-            <a
+            <button
               data-final-cta
-              href={whatsappLink("Olá! Quero começar minha matrícula na pós.")}
-              target="_blank"
-              rel="noopener noreferrer"
+              type="button"
               onClick={handleFaixaCta}
               className="cta-button flex md:inline-flex w-full md:w-auto items-center justify-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-bold px-6 min-h-[52px] py-4 whitespace-nowrap"
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" />
               Começar agora pelo WhatsApp
-            </a>
+            </button>
           </div>
         </div>
 
