@@ -46,15 +46,15 @@ export function CourseSearch() {
 
   const selectCourse = (curso: Curso) => {
     track("course_search_select", { curso: curso.nome, area: curso.area });
-    const texto = `Olá! Tenho interesse na pós em ${curso.nome}.`;
-    const url = `https://wa.me/${NUMERO_COMERCIAL}?text=${encodeURIComponent(texto)}`;
-    window.open(url, "_blank", "noopener,noreferrer");
+    track("open_popup_curso", { source: "course_search", curso: curso.nome });
+    modalStore.openModal(curso.nome);
     setOpen(false);
   };
 
   const openConsultor = () => {
     track("course_search_no_match", { query });
-    window.open(buildWhatsappUrl("pós-graduação"), "_blank", "noopener,noreferrer");
+    track("open_popup_curso", { source: "course_search_no_match" });
+    modalStore.openModal();
     setOpen(false);
   };
 
