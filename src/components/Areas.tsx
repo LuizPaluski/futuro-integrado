@@ -96,17 +96,15 @@ export function Areas() {
                 escolhe a turma e já começa.
               </p>
             </div>
-            <a
+            <button
               data-final-cta
-              href={whatsappLink("Olá! Quero começar minha matrícula na pós.")}
-              target="_blank"
-              rel="noopener noreferrer"
+              type="button"
               onClick={handleFaixaCta}
               className="cta-button flex md:inline-flex w-full md:w-auto items-center justify-center gap-2 rounded-xl bg-whatsapp hover:bg-whatsapp-hover text-whatsapp-foreground font-bold px-6 min-h-[52px] py-4 whitespace-nowrap"
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" />
               Começar agora pelo WhatsApp
-            </a>
+            </button>
           </div>
         </div>
 
