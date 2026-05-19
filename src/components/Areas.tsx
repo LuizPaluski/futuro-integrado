@@ -42,7 +42,7 @@ function AreaCard({ area }: { area: Area }) {
     <button
       type="button"
       onClick={onClick}
-      className="cta-button group text-left rounded-2xl border border-beige bg-card p-5 md:p-6 hover:border-accent md:hover:-translate-y-0.5 flex flex-col min-h-[160px]"
+      className="group h-full w-full text-left rounded-2xl border border-beige bg-card p-6 hover:border-accent focus-visible:border-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 md:hover:-translate-y-0.5 transition-colors flex flex-col min-h-[160px]"
     >
       <div className="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center">
         <area.Icon className="h-5 w-5" aria-hidden="true" />
@@ -78,7 +78,7 @@ export function Areas() {
 
         <CourseSearch />
 
-        <div className="mt-8 md:mt-10 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+        <div className="mt-8 md:mt-10 grid grid-cols-2 md:grid-cols-3 gap-6 items-stretch">
           {AREAS.map((a) => (
             <AreaCard key={a.nome} area={a} />
           ))}
