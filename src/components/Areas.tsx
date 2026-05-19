@@ -78,7 +78,7 @@ export function Areas() {
 
         <CourseSearch />
 
-        <div className="mt-8 md:mt-10 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+        <div className="mt-8 md:mt-10 grid grid-cols-2 md:grid-cols-3 gap-6 items-stretch">
           {AREAS.map((a) => (
             <AreaCard key={a.nome} area={a} />
           ))}
