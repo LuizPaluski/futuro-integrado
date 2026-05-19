@@ -1,7 +1,7 @@
 import { useId, useMemo, useRef, useState, useEffect, type KeyboardEvent } from "react";
 import { Search, X, MessageCircle } from "lucide-react";
 import { CURSOS, normalize, type Curso } from "@/constants/courses";
-import { buildWhatsappUrl, NUMERO_COMERCIAL } from "@/lib/constants";
+import { modalStore } from "@/lib/modal-store";
 import { track } from "@/lib/tracking";
 
 const MAX_RESULTS = 8;
