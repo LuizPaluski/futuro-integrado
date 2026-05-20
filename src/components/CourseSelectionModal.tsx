@@ -76,21 +76,9 @@ export function CourseSelectionModal() {
     }
     const url = buildWhatsappUrl(value);
 
-    if (typeof window !== "undefined" && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
-      (window as unknown as { gtag: (...args: unknown[]) => void }).gtag("event", "generate_lead", {
-        event_category: "whatsapp",
-        event_label: value,
-        value: 1,
-      });
-    }
-    if (typeof window !== "undefined" && (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq) {
-      (window as unknown as { fbq: (...args: unknown[]) => void }).fbq("track", "Lead", {
-        content_name: value,
-        content_category: "pos-graduacao",
-      });
-    }
     track("lead_whatsapp", { curso: value });
     track("submit_popup_curso", { curso_interesse: value });
+
 
     modalStore.closeModal();
     setTimeout(() => {
