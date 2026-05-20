@@ -57,15 +57,10 @@ export function ExitIntentModal() {
         <h3 id="exit-modal-title" className="font-serif text-2xl md:text-3xl font-bold text-navy pr-8">
           Antes de sair.
         </h3>
-        <p className="mt-2 text-muted-foreground">
-          Garanta uma condição especial de matrícula para hoje.
-        </p>
-        {/* CLIENTE: confirmar com Grupo Integrado se será desconto, isenção
-            de taxa ou parcelamento. */}
         <p className="mt-4 text-base text-foreground">
           Condição especial disponível apenas para matrículas realizadas hoje.
-          (Conteúdo final a confirmar com o Grupo Integrado.)
         </p>
+
 
         <button
           onClick={handleCta}
