@@ -88,6 +88,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Pós-Graduação EAD | Centro Universitário Integrado" },
+      { name: "description", content: "Cria landing page mobile-first para divulgar pós-graduação EAD, focando em conversão direta para WhatsApp." },
+      { property: "og:description", content: "Cria landing page mobile-first para divulgar pós-graduação EAD, focando em conversão direta para WhatsApp." },
+      { name: "twitter:description", content: "Cria landing page mobile-first para divulgar pós-graduação EAD, focando em conversão direta para WhatsApp." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a5dbbfca-d04b-4a84-a88d-061e8fc70d2d/id-preview-65dedc14--e456345b-309b-4c03-a7a9-7a2b533fb627.lovable.app-1779279287645.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a5dbbfca-d04b-4a84-a88d-061e8fc70d2d/id-preview-65dedc14--e456345b-309b-4c03-a7a9-7a2b533fb627.lovable.app-1779279287645.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
