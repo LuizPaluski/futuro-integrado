@@ -6,7 +6,7 @@
  */
 
 // WhatsApp comercial (formato internacional, somente números).
-export const NUMERO_COMERCIAL = "5544936180914";
+export const NUMERO_COMERCIAL = "5544936181012";
 
 // Google Tag Manager container ID (mesmo das LPs institucionais do Integrado).
 export const GTM_ID = "GTM-PLWM6NS";
