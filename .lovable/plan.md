@@ -1,0 +1,1 @@
+Atualizar `NUMERO_COMERCIAL` em `src/lib/constants.ts` de `"5544936180914"` para `"5544936181012"`. Todos os CTAs do WhatsApp (Hero, Areas, Credentials, Objections, StickyMobileCTA, CourseSelectionModal) usam essa constante via `buildWhatsappUrl`/`whatsappLink`, então a troca em um único ponto propaga para o site inteiro.
